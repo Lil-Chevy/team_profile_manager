@@ -15,14 +15,17 @@
   },
   "author": "Jack",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Lil-Chevy/team_profile_manager/issues"
   },
   "homepage": "https://github.com/Lil-Chevy/team_profile_manager#readme",
   "dependencies": {
-    "inquirer": "^9.0.0",
-    "jest": "^28.1.2",
+    "express": "^4.18.1",
+    "file-system": "^2.2.2",
+    "inquirer": "^8.2.0",
+    "inquirer-confirm": "^2.0.7",
+    "jest": "^27.3.0",
     "node-fetch": "^2.6.1"
   }
 }
