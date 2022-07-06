@@ -1,18 +1,16 @@
-const Employee = require("../lib/Employee");
-
 const createCard = function makePage(userArr) {
   function makeEngineer(engineer) {
     return `
-        <div> class ="card"
-        <div class = container>
-        <div class = "title"
-            <h3>${engineer.getName()}<h2>
-            <h3>${engineer.getRole()}<h2>
+        <div class ="card"
+        <div class="container">
+        <div class="title">
+            <h2>${engineer.name}</h2>
+            <h2>${engineer.getRole}<h2>
          </div>
-         <div class="info"> 
-         <p> ID: ${engineer.getId()}<p>
-         <p> Email: ${engineer.getEmail}<p>
-         <p> Github: https://github.com/${engineer.github()} <p>
+         <div class="info">
+         <p> ID: ${engineer.id}</p>
+         <p> Email: ${engineer.email}</p>
+         <p> Github: https://github.com/${engineer.github} </p>
          </div>
          </div>
          </div>
@@ -21,16 +19,16 @@ const createCard = function makePage(userArr) {
   }
   function makeManager(manager) {
     return `
-        <div> class ="card"
-        <div class = container>
-        <div class = "title"
-            <h3>${manager.getName()}<h2>
-            <h3>${manager.getRole()}<h2>
+        <div class="card">
+        <div class="container">
+        <div class="title">
+            <h2>${manager.name}<h2>
+            <h2>${manager.getRole}<h2>
          </div>
          <div class="info"> 
-         <p> ID: ${manager.getId()}<p>
-         <p> Email: ${manager.getEmail}<p>
-         <p> Office: ${manager.office} <p>
+         <p> ID: ${manager.id}</p>
+         <p> Email: ${manager.email}</p>
+         <p> Office: ${manager.office} </p>
          </div>
          </div>
          </div>
@@ -38,16 +36,16 @@ const createCard = function makePage(userArr) {
   }
   function makeIntern(intern) {
     return `
-        <div> class ="card"
-        <div class = container>
-        <div class = "title"
-            <h3>${intern.getName()}<h2>
-            <h3>${intern.getRole()}<h2>
+        <div class="card">
+        <div class="container">
+        <div class="title">
+            <h2>${intern.name}<h2>
+            <h2>${intern.getRole}<h2>
          </div>
          <div class="info">
-         <p> ID: ${intern.getId()}<p>
-         <p> Email: ${intern.getEmail}<p>
-         <p> school: ${intern.school} <p>
+         <p> ID: ${intern.id}</p>
+         <p> Email: ${intern.email}</p>
+         <p> school: ${intern.school} </p>
          </div>
          </div>
          </div>
@@ -56,17 +54,17 @@ const createCard = function makePage(userArr) {
   const card = [];
   card.push(
     userArr
-      .filter((employee) => employee.getRole() == "Manager")
+      .filter((employee) => employee.getRole == "Manager")
       .map((manager) => makeManager(manager))
   );
   card.push(
     userArr
-      .filter((employee) => employee.getRole() == "Engineer")
+      .filter((employee) => employee.getRole == "Engineer")
       .map((engineer) => makeEngineer(engineer))
   );
   card.push(
     userArr
-      .filter((employee) => employee.getRole() == "Intern")
+      .filter((employee) => employee.getRole == "Intern")
       .map((intern) => makeIntern(intern))
   );
   return card.flat().join("");
@@ -83,13 +81,12 @@ module.exports = (team) => {
     <title>Team Management</title>
   </head>
   <body>
-    <div class = "title>
-        <h2> My Team<h1>
+    <div class="title">
+        <h2> My Team</h2>
         </div>
-        <div class = "team-container">
+        <div class="team-container">
         ${createCard(team)}
         </div>
-    <h1>
   </body>
 </html>
 
