@@ -73,8 +73,13 @@ const managerInput = () => {
         },
       },
     ])
-    .then((data) => {
-      const manager = new Manager(data.name, data.id, data.email, data.office);
+    .then((response) => {
+      const manager = new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.office
+      );
       userArr.push(manager);
     })
     .then(() => {
@@ -135,6 +140,19 @@ const engineerInput = () => {
             return true;
           } else {
             console.log("Please enter the engineer’s employee id");
+            return false;
+          }
+        },
+      },
+      {
+        name: "email",
+        type: "input",
+        message: "enter the engineer email",
+        validate: (engineerEmailInput) => {
+          if (engineerEmailInput) {
+            return true;
+          } else {
+            console.log("Please enter the interns Email");
             return false;
           }
         },

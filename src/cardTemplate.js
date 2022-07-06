@@ -67,6 +67,7 @@ const createCard = function makePage(userArr) {
       .filter((employee) => employee.getRole == "Intern")
       .map((intern) => makeIntern(intern))
   );
+  console.log("CARD", card);
   return card.flat().join("");
 };
 
