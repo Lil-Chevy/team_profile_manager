@@ -11,7 +11,7 @@ const userArr = [];
 
 function writeFile(fileName, data) {
   fs.writeFile(fileName, data, (error) => {
-    if (err) {
+    if (error) {
       console.log(error);
     }
   });
@@ -21,7 +21,7 @@ const managerInput = () => {
   return inquirer
     .prompt([
       {
-        name: "managerName",
+        name: "name",
         type: "input",
         message: "enter the team manager's name",
         validate: (managerNameInput) => {
@@ -34,7 +34,7 @@ const managerInput = () => {
         },
       },
       {
-        name: "managerId",
+        name: "id",
         type: "input",
         message: "enter the team manager's employee id",
         validate: (managerIdInput) => {
@@ -47,7 +47,7 @@ const managerInput = () => {
         },
       },
       {
-        name: "managerEmail",
+        name: "email",
         type: "input",
         message: "enter the team manager's email",
         validate: (managerEmailInput) => {
@@ -60,7 +60,7 @@ const managerInput = () => {
         },
       },
       {
-        name: "managerOffice",
+        name: "office",
         type: "input",
         message: "enter the team manager's office number",
         validate: (managerOfficeInput) => {
@@ -74,12 +74,7 @@ const managerInput = () => {
       },
     ])
     .then((data) => {
-      const manager = new Manager(
-        data.managerName,
-        data.ManagerId,
-        data.managerEmail,
-        data.managerOffice
-      );
+      const manager = new Manager(data.name, data.id, data.email, data.office);
       userArr.push(manager);
     })
     .then(() => {
@@ -108,6 +103,7 @@ const createTeam = () => {
           break;
         case "Done":
           console.log("Uploading content, check for html");
+          console.log("USER ARR", userArr);
           writeFile("index.html", team(userArr));
           break;
       }
@@ -118,7 +114,7 @@ const engineerInput = () => {
   return inquirer
     .prompt([
       {
-        name: "engineerName",
+        name: "name",
         type: "input",
         message: "enter the engineer's name",
         validate: (engineerNameInput) => {
@@ -131,7 +127,7 @@ const engineerInput = () => {
         },
       },
       {
-        name: "engineerId",
+        name: "id",
         type: "input",
         message: "enter the engineer's employee id",
         validate: (engineerIdInput) => {
@@ -144,7 +140,7 @@ const engineerInput = () => {
         },
       },
       {
-        name: "engineerGithub",
+        name: "github",
         type: "input",
         message: "enter the team engineer's GitHub",
         validate: (engineerGithubInput) => {
@@ -172,9 +168,9 @@ const internInput = () => {
   return inquirer
     .prompt([
       {
-        name: "internName",
+        name: "name",
         type: "input",
-        message: "enter the engineer's name",
+        message: "enter the Intern's name",
         validate: (internNameInput) => {
           if (internNameInput) {
             return true;
@@ -185,7 +181,7 @@ const internInput = () => {
         },
       },
       {
-        name: "internId",
+        name: "id",
         type: "input",
         message: "enter the intern's employee id",
         validate: (internIdInput) => {
@@ -198,7 +194,7 @@ const internInput = () => {
         },
       },
       {
-        name: "internEmail",
+        name: "email",
         type: "input",
         message: "enter the intern email",
         validate: (internEmailInput) => {
@@ -211,7 +207,7 @@ const internInput = () => {
         },
       },
       {
-        name: "internSchool",
+        name: "school",
         type: "input",
         message: "enter the interns School",
         validate: (internEmailInput) => {
@@ -229,7 +225,7 @@ const internInput = () => {
         response.name,
         response.id,
         response.email,
-        response.github
+        response.school
       );
       userArr.push(intern);
       createTeam();
