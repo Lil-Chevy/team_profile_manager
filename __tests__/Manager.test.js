@@ -5,7 +5,7 @@ test("Create manager constructor", () => {
   expect(manager.name).toBe("Jerry");
   expect(manager.id).toBe(1111);
   expect(manager.email).toBe("manager@managerstuff.com");
-  expect(manager.officeNumber).toBe(2222);
+  expect(manager.office).toBe(2222);
 });
 
 test("get id", () => {
@@ -25,5 +25,5 @@ test("get email", () => {
 
 test("get school", () => {
   const manager = new Manager("Jerry", 1111, "manager@managerstuff.com", 2222);
-  expect(manager.officeNumber).toBe(2222);
+  expect(manager.office).toBe(2222);
 });
