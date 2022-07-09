@@ -1,3 +1,4 @@
+// createCard function to dynamically add userArr  information used in index.js
 const createCard = function makePage(userArr) {
   console.log("USER ARR 2 ", userArr);
   function makeEngineer(engineer) {
@@ -10,8 +11,8 @@ const createCard = function makePage(userArr) {
          </div>
          <div class="info">
          <p> ID: ${engineer.id}</p>
-         <p> Email: ${engineer.email}</p>
-         <p> Github: https://github.com/${engineer.github} </p>
+         <p> Email: <a href ="${engineer.email}"> ${engineer.email} </a></p>
+         <p> Github: <a href ="https://github.com/${engineer.github}"> https://github.com/${engineer.github}</a></p>
          </div>
          </div>
          </div>
@@ -28,7 +29,7 @@ const createCard = function makePage(userArr) {
          </div>
          <div class="info">
          <p> ID: ${manager.id}</p>
-         <p> Email: ${manager.email}</p>
+         <p> Email: <a href ="${manager.email}"> ${manager.email}</a></p>
          <p> school: ${manager.officeNumber} </p>
          </div>
          </div>
@@ -45,7 +46,7 @@ const createCard = function makePage(userArr) {
          </div>
          <div class="info">
          <p> ID: ${intern.id}</p>
-         <p> Email: ${intern.email}</p>
+         <p> Email: <a href ="${intern.email}> ${intern.email}</a></p>
          <p> school: ${intern.school} </p>
          </div>
          </div>
@@ -54,9 +55,12 @@ const createCard = function makePage(userArr) {
   }
 
   const dynamicArr = [];
+  // take information from UserARR and push to dynamicARR
   dynamicArr.push(
     userArr
+      // filter information from employee under the role Manager
       .filter((employee) => employee.role == "Manager")
+      // iterate through userArr array for information portaining to manager and make array manager
       .map((manager) => makeManager(manager))
   );
   dynamicArr.push(
