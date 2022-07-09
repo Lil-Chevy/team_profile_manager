@@ -75,7 +75,7 @@ const createCard = function makePage(userArr) {
   );
   return dynamicArr.flat().join("");
 };
-
+// html file to be written in dist folder
 module.exports = (team) => {
   return `
     <!DOCTYPE html>
