@@ -1,6 +1,6 @@
 # Team Profile Generator
 
-![screenShot]()
+![screenShot](./assets/images/screenshot.png)
 
 ## Purpose
 
