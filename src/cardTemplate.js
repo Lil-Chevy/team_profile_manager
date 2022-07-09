@@ -1,4 +1,7 @@
+const Employee = require("../lib/Employee");
+
 const createCard = function makePage(userArr) {
+  console.log("USER ARR 2 ", userArr);
   function makeEngineer(engineer) {
     return `
         <div class ="card"
@@ -22,13 +25,13 @@ const createCard = function makePage(userArr) {
         <div class="card">
         <div class="container">
         <div class="title">
-            <h2>${manager.name}<h2>
-            <h2>${manager.getRole}<h2>
+            <h2>${manager.name}</h2>
+            <h2>${manager.role}</h2>
          </div>
-         <div class="info"> 
+         <div class="info">
          <p> ID: ${manager.id}</p>
          <p> Email: ${manager.email}</p>
-         <p> Office: ${manager.office} </p>
+         <p> school: ${manager.officeNumber} </p>
          </div>
          </div>
          </div>
@@ -39,8 +42,8 @@ const createCard = function makePage(userArr) {
         <div class="card">
         <div class="container">
         <div class="title">
-            <h2>${intern.name}<h2>
-            <h2>${intern.getRole}<h2>
+            <h2>${intern.name}</h2>
+            <h2>${intern.getRole}</h2>
          </div>
          <div class="info">
          <p> ID: ${intern.id}</p>
@@ -51,24 +54,24 @@ const createCard = function makePage(userArr) {
          </div>
         `;
   }
-  const card = [];
-  card.push(
+
+  const dynamicArr = [];
+  dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole == "Manager")
+      .filter((employee) => employee.getRole() == "Manager")
       .map((manager) => makeManager(manager))
   );
-  card.push(
+  dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole == "Engineer")
+      .filter((employee) => employee.getRole() == "Engineer")
       .map((engineer) => makeEngineer(engineer))
   );
-  card.push(
+  dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole == "Intern")
+      .filter((employee) => employee.getRole() == "Intern")
       .map((intern) => makeIntern(intern))
   );
-  console.log("CARD", card);
-  return card.flat().join("");
+  return dynamicArr.flat().join("");
 };
 
 module.exports = (team) => {
