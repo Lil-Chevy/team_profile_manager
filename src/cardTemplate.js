@@ -1,10 +1,8 @@
-const Employee = require("../lib/Employee");
-
 const createCard = function makePage(userArr) {
   console.log("USER ARR 2 ", userArr);
   function makeEngineer(engineer) {
     return `
-        <div class ="card"
+        <div class ="card">
         <div class="container">
         <div class="title">
             <h2>${engineer.name}</h2>
@@ -58,17 +56,17 @@ const createCard = function makePage(userArr) {
   const dynamicArr = [];
   dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole() == "Manager")
+      .filter((employee) => employee.role == "Manager")
       .map((manager) => makeManager(manager))
   );
   dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole() == "Engineer")
+      .filter((employee) => employee.getRole == "Engineer")
       .map((engineer) => makeEngineer(engineer))
   );
   dynamicArr.push(
     userArr
-      .filter((employee) => employee.getRole() == "Intern")
+      .filter((employee) => employee.getRole == "Intern")
       .map((intern) => makeIntern(intern))
   );
   return dynamicArr.flat().join("");
