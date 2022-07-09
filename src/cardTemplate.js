@@ -29,8 +29,8 @@ const createCard = function makePage(userArr) {
          </div>
          <div class="info">
          <p> ID: ${manager.id}</p>
-         <p> Email: <a href ="${manager.email}"> ${manager.email}</a></p>
-         <p> school: ${manager.officeNumber} </p>
+         <p> Email:<a href ="${manager.email}"> ${manager.email}</a> </p>
+         <p> school: ${manager.office} </p>
          </div>
          </div>
          </div>
